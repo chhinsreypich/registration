@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Team info</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+  <link rel="stylesheet" href="/css/teamDetail-style.css">
+</head>
+<body>
+<div class="container">
+  <div class="team-header">
+    <div>
+      <h1 class="team-name" th:text="${team.name}">Team Name</h1>
+      <p class="leader">
+        Leader: <span th:text="${team.creator != null ? team.creator.name : 'Unknown'}"></span>
+      </p>
+    </div>
+  </div>
+
+  <!-- Member List -->
+  <h2 class="sub-heading">Members & Lectures</h2>
+  <div th:if="${#lists.isEmpty(members)}">
+    <p>No members in this team yet.</p>
+  </div>
+  <div th:each="member : ${members}" class="member-card">
+    <h3 th:text="${member.name}">Member Name</h3>
+
+    <!-- Lectures for this member -->
+    <div class="courses" th:if="${!#lists.isEmpty(member.registration)}">
+      <div class="course-card" th:each="reg : ${member.registration}">
+        <h3 th:text="${reg.lecture.title}">Lecture Title</h3>
+        <p th:text="${reg.lecture.content}">Lecture Content</p>
+      </div>
+    </div>
+    <p th:if="${#lists.isEmpty(member.registration)}">No lectures chosen</p>
+  </div>
+  <button class="back-btn" th:onclick="|window.location.href='/teams/list?memberId=${memberId}'|">
+    Back
+  </button>
+</div>
+</body>
+</html>

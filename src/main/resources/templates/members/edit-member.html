@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Edit Member Info</title>
+  <link rel="stylesheet" th:href="@{/css/edit-member-style.css}">
+</head>
+<body>
+<h1>Edit Your Information</h1>
+
+<form th:action="@{/members/edit}" method="post">
+  <input type="hidden" name="memberId" th:value="${member.id}">
+
+  <label>Name:</label>
+  <input type="text" name="name" th:value="${member.name}" required><br><br>
+
+  <label>Age:</label>
+  <input type="number" name="age" th:value="${member.age}" required><br><br>
+
+  <label>Address:</label>
+  <input type="text" name="address" th:value="${member.address}" required><br><br>
+
+  <label>Team:</label>
+  <select name="teamId" required>
+    <option th:each="team : ${teams}" th:value="${team.id}"
+            th:text="${team.name}"
+            th:selected="${member.team != null} ? ${team.id == member.team.id} : false">
+    </option>
+
+  </select><br><br>
+
+  <a th:href="@{'/members/change-password'(memberId=${member.id})}">Change Password</a>
+
+  <button type="submit">Save Changes</button>
+</form>
+<br>
+<a th:href="@{'/members/member-home'(memberId=${member.id})}">Back to Home</a>
+</body>
+</html>

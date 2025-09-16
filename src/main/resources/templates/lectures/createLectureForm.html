@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create Lecture</title>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+  <link rel="stylesheet" href="/css/createLectureForm-style.css">
+</head>
+<body>
+<section class="home-grid">
+
+  <button onclick="window.location.href='/'">
+    <i class="fas fa-house"></i>
+  </button>
+
+  <h1 class="heading">Create Lecture</h1>
+
+  <div class="box-container">
+    <div class="box">
+      <h3 class="title">Create Lecture</h3>
+
+      <form th:action="@{/lectures/new}" method="post" class="form">
+        <label>Lecture Title</label>
+        <input type="text" name="title" placeholder="Enter lecture title" required><br>
+
+        <label>Lecture Content</label>
+        <input type="text" name="content" placeholder="Enter lecture content"><br>
+
+        <!-- Hide to pass memberId -->
+        <input type="hidden" name="memberId" th:value="${memberId}" />
+
+        <button type="submit" class="submit-btn">Submit</button>
+      </form>
+
+      <button class="back-btn" th:onclick="|window.location.href='/lectures/list?memberId=${memberId}'|">
+        <i class="fa-solid fa-arrow-left"></i> Back
+      </button>
+    </div>
+  </div>
+</section>
+</body>
+</html>

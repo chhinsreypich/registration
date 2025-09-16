@@ -1,0 +1,102 @@
+/* edit-lecture-style.css */
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #e6f0ff;
+    margin: 0;
+    padding: 0;
+    overflow-y: auto;
+}
+
+h1 {
+    text-align: center;
+    color: #1a73e8;
+    margin-top: 2rem;
+    font-size: 2.2rem;
+}
+
+form {
+    background-color: #ffffff;
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: #333333;
+}
+
+input[type="text"],
+textarea {
+    width: 100%;
+    padding: 10px 12px;
+    margin-bottom: 1.5rem;
+    border: 1px solid #1a73e8;
+    border-radius: 8px;
+    font-size: 1rem;
+    resize: vertical;
+}
+
+textarea {
+    min-height: 100px;
+}
+
+button {
+    background-color: #1a73e8;
+    color: #ffffff;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+button:hover {
+    background-color: #1558b0;
+}
+
+form[style] button {
+    background-color: red;
+}
+
+form[style] button:hover {
+    background-color: darkred;
+}
+
+a {
+    display: block;
+    text-align: center;
+    margin-top: 2rem;
+    color: #1a73e8;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Scrollbar for long forms */
+body::-webkit-scrollbar {
+    width: 8px;
+}
+
+body::-webkit-scrollbar-track {
+    background: #e6f0ff;
+    border-radius: 10px;
+}
+
+body::-webkit-scrollbar-thumb {
+    background: #1a73e8;
+    border-radius: 10px;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+    background: #1558b0;
+}

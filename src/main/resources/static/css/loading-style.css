@@ -1,0 +1,49 @@
+body
+{
+    margin : 0;
+    padding : 0;
+    background : #000;
+}
+.smoke{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.smoke span
+{
+    position : relative;
+    color: #fff;
+    font-family: sans-serif;
+    font-weight: bold;
+    letter-spacing: 10px;
+    text-transform: uppercase;
+    font-size: 56px;
+    animation: animate 11s linear infinite;
+}
+  .smoke span:nth-child(n) {
+      animation-delay: calc((4.2s / 21) * (var(--i)));
+    }
+
+@keyframes animate {
+    0% {
+        filter: blur(0);
+        opacity: 1;
+        transform: translateY(0);
+    }
+    40% {
+        filter: blur(20px);
+        opacity: 0.2;
+        transform: translateY(-10px);
+    }
+    80% {
+        filter: blur(0);
+        opacity: 1;
+        transform: translateY(0);
+    }
+    100% {
+        filter: blur(0);
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

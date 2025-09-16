@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>add <i class="ri-team-fill"></i></title>
+    <!-- font awesome link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+    <link rel="stylesheet" href="/css/createTeamForm-style.css">
+</head>
+<body>
+<header class="header">
+    <section class="home-grid">
+        <form action="/teams/new" method="post">
+        <button th:onclick="|window.location.href='/members/member-home?memberId=${memberId}'|">
+            <i class="fas fa-house"></i>
+        </button>
+        <h1 class="heading">My Team</h1>
+        <div class="box-container">
+            <div class="box">
+                <h3 class="title">Create Team</h3>
+                <div class="form">
+                    <label for="name">Team Name</label>
+                    <input type="text" id="name" name="name" required  placeholder="Enter team name"><br>
+
+                    <label>Your Username</label>
+                    <input type="text" name="username" required placeholder="Enter username"><br>
+
+                    <label for>Password</label>
+                    <input type="password" name="password" required placeholder="Enter your account password"><br>
+
+                    <input type="hidden" name="memberId" th:value="${memberId}" />
+
+                    <button type="submit" class="submit-btn" >Create</button>
+                </div>
+                <!-- Back Button -->
+                <button class="back-btn" th:onclick="|window.location.href='/teams/list?memberId=${memberId}'|">
+                    <i class="fa-solid fa-arrow-left"></i> Back
+                </button>
+            </div>
+        </div>
+        </form>
+    </section>
+</header>
+</body>
+</html>
+

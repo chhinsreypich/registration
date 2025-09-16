@@ -1,0 +1,88 @@
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+   font-family: 'Poppins', sans-serif;
+}
+
+/* Body */
+body {
+   background: white;
+   display: flex;
+   justify-content: center;
+   padding: 40px 20px;
+   color: #333;
+}
+
+/* Container */
+.container {
+   width: 100%;
+   max-width: 1000px;
+}
+
+/* Heading */
+.heading {
+   text-align: center;
+   font-size: 2rem;
+   margin-bottom: 30px;
+   color: #1565c0;
+}
+
+/* Total teams counter */
+h3 span {
+   font-weight: 600;
+   color: #1e88e5;
+}
+
+/* Team grid */
+.team-grid {
+   display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+   gap: 20px;
+}
+
+/* Team card */
+.team-card {
+   background: #e3f2fd;
+   border-radius: 12px;
+   padding: 25px;
+   text-align: center;
+   box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+   transition: transform 0.3s ease, background 0.3s ease;
+   cursor: pointer;
+}
+.team-card:hover {
+   transform: translateY(-5px);
+   background: #bbdefb;
+}
+
+/* Team name */
+.team-card h3 {
+   font-size: 1.2rem;
+   margin-bottom: 8px;
+   color: #1565c0;
+}
+
+/* Creator */
+.team-card p span {
+   color: #1e88e5;
+}
+
+/* Back button */
+.back-btn {
+   display: block;
+   margin: 40px auto 0;
+   padding: 12px 30px;
+   border: none;
+   border-radius: 25px;
+   color: #fff;
+   font-size: 1rem;
+   font-weight: 500;
+   cursor: pointer;
+   background: #1565c0;
+   transition: 0.3s ease;
+}
+
+.back-btn:hover {
+   background: #1e88e5;
+}

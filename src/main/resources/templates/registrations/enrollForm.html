@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Enroll in Lecture</title>
+  <link rel="stylesheet" href="/css/enrollForm-style.css">
+</head>
+<body class="box">
+<h1 class="heading">Enroll in Lecture</h1>
+<form th:action="@{'/registrations/new'(memberId=${memberId})}" method="post" class="box-container">
+  <input type="hidden" name="memberId" th:value="${memberId}">
+  <h3>Select Lecture</h3>
+  <div class="input-box">
+    <select name="lectureId" required>
+      <option value="" disabled selected>Select a Lecture</option>
+      <option th:each="lecture : ${lectures}" th:value="${lecture.id}" th:text="${lecture.title}"></option>
+    </select><br><br>
+  </div>
+
+  <button type="submit">Enroll</button>
+</form>
+<a th:href="@{'/members/member-home'(memberId=${memberId})}">Back to Home</a>
+</body>
+</html>
+

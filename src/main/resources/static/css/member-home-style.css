@@ -1,0 +1,331 @@
+/* -------------------------
+   GOOGLE FONT IMPORT
+------------------------- */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600;700&display=swap');
+
+/* -------------------------
+   ROOT VARIABLES (colors, borders, etc.)
+------------------------- */
+:root{
+   --main-color:#1565c0;
+   --hover-color:#1e88e5; /* Lighter blue for hover */
+   --red:#e74c3c;         /* Red (delete) */
+   --orange:#1565c0;      /* dark blue */
+   --light-color:#555;     /* Gray text */
+   --light-bg:#e3f2fd;    /* Light blue background */
+   --black:#1e1e1e;       /* Dark text */
+   --white:#fff;           /* White */
+   --border:.1rem solid rgba(0,0,0,.2); /* Thin border */
+}
+
+/* -------------------------
+   GLOBAL RESET
+------------------------- */
+*{
+   font-family: 'Nunito', sans-serif;
+   margin:0; padding:0;
+   box-sizing: border-box;
+   outline: none; border:none;
+   text-decoration: none;
+}
+
+/* Highlight selection */
+*::selection{
+   background-color: var(--main-color);
+   color:#fff;
+}
+
+html{
+   font-size: 62.5%;
+   overflow-x: hidden;
+}
+
+html::-webkit-scrollbar{
+   width: 1rem;
+   height: .5rem;
+}
+
+html::-webkit-scrollbar-track{
+   background-color: transparent;
+}
+
+body{
+   background-color: var(--white);
+   padding-left: 30rem; /* Space for sidebar */
+   line-height: 1.6;
+}
+
+body.active{
+   padding-left: 0;
+}
+
+section{
+   padding:2rem;
+   margin: 0 auto;
+   max-width: 1200px;
+}
+
+.heading{
+   font-size: 2.5rem;
+   color:var(--main-color);
+   margin-bottom: 2.5rem;
+   border-bottom: var(--border);
+   padding-bottom: 1.5rem;
+   text-transform: capitalize;
+}
+
+.inline-btn,
+.inline-option-btn,
+.inline-delete-btn,
+.btn,
+.delete-btn,
+.option-btn,
+.flex button{
+   border-radius: .6rem;
+   color:#fff;
+   font-size: 1.8rem;
+   cursor: pointer;
+   text-transform: capitalize;
+   padding:1rem 3rem;
+   text-align: center;
+   margin-top: 1rem;
+   background-color: var(--main-color);
+}
+
+.flex button{
+   margin-top: 10px;
+   padding: 5px 10px;
+   border-radius: 5px;
+}
+
+.btn:hover,
+.inline-btn:hover,
+.flex button:hover,
+.option-btn:hover,
+.inline-option-btn:hover{
+   background-color: var(--hover-color);
+   color: #fff;
+}
+
+/* Button containers */
+.flex-btn{
+   display: flex;
+   gap: 1rem;
+}
+
+.header{
+   position: sticky;
+   top:0; left:0; right: 0;
+   background-color: var(--white);
+   z-index: 1000;
+   border-bottom: var(--border);
+}
+
+.header .flex{
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   position: relative;
+   padding: 1.5rem 2rem;
+}
+
+.header .flex .logo{
+   font-size: 2.5rem;
+   color: var(--main-color);
+}
+
+/* Icons */
+.header .flex .icons div{
+   font-size: 2rem;
+   color:var(--black);
+   align-items: center;
+   background-color: var(--light-bg);
+   border-radius: .5rem;
+   height: 4.5rem;
+   width: 4.5rem;
+   line-height: 4.5rem;
+   cursor: pointer;
+   text-align: center;
+   margin-left: .7rem;
+}
+.header .flex .icons div:hover{
+   background-color: var(--main-color);
+   color:var(--white);
+}
+
+/* Profile dropdown */
+.header .flex .profile{
+   position: absolute;
+   top:120%; right: 2rem;
+   background-color: var(--white);
+   border-radius: .5rem;
+   padding: 1.5rem;
+   text-align: center;
+   overflow: hidden;
+   transform-origin: top right;
+   transform: scale(0);
+   transition: .2s linear;
+   width: 30rem;
+}
+.header .flex .profile.active{
+   transform: scale(1);
+}
+.header .flex .profile .image{
+   height: 10rem;
+   width: 10rem;
+   border-radius: 50%;
+   object-fit: contain;
+   margin-bottom: 1rem;
+}
+.header .flex .profile .name{
+   font-size: 2rem;
+   color:var(--main-color);
+   overflow: hidden;
+   text-overflow: ellipsis;
+   white-space: nowrap;
+}
+.header .flex .profile .role{
+   font-size: 1.8rem;
+   color: var(--light-color);
+}
+
+/* -------------------------
+   SIDEBAR
+------------------------- */
+.side-bar{
+   position: fixed;
+   top: 0; left: 0;
+   width: 30rem;
+   background-color: var(--white);
+   height: 100vh;
+   border-right: var(--border);
+   z-index: 1200;
+}
+.side-bar #close-btn{
+   text-align: right;
+   padding: 2rem;
+   display: none;
+}
+.side-bar #close-btn i{
+   text-align: right;
+   font-size: 2.5rem;
+   background:var(--main-color);
+   border-radius: .5rem;
+   color:var(--white);
+   cursor: pointer;
+   height: 4.5rem;
+   width: 4.5rem;
+   line-height: 4.5rem;
+}
+.side-bar #close-btn i:hover{
+   background-color: var(--hover-color);
+}
+
+/* Sidebar profile */
+.side-bar .profile{
+   padding:3rem 2rem;
+   text-align: center;
+}
+.side-bar .profile .image{
+   height: 10rem;
+   width: 10rem;
+   border-radius: 50%;
+   object-fit: contain;
+   margin-bottom: 1rem;
+}
+.side-bar .profile .name{
+   font-size: 2rem;
+   color:var(--main-color);
+   overflow: hidden;
+   text-overflow: ellipsis;
+   white-space: nowrap;
+}
+.side-bar .profile .role{
+   font-size: 1.8rem;
+   color: var(--light-color);
+}
+
+/* Sidebar nav links */
+.side-bar .navbar a{
+   display: block;
+   padding: 2rem;
+   font-size: 2rem;
+}
+.side-bar .navbar a i{
+   margin-right: 1.5rem;
+   color:var(--main-color);
+   transition: .2s linear;
+}
+.side-bar .navbar a span{
+   color:var(--main-color);
+}
+.side-bar .navbar a:hover{
+   background-color: var(--light-bg);
+}
+.side-bar .navbar a:hover i,
+.side-bar .navbar a:hover span{
+   color: var(--hover-color);
+}
+
+/* Sidebar hide */
+.side-bar.active{
+   left: -30rem;
+}
+
+/* -------------------------
+   HOME GRID
+------------------------- */
+.home-grid .box-container{
+   display: grid;
+   grid-template-columns: repeat(auto-fit, 27.5rem);
+   gap:1.5rem;
+   justify-content: center;
+   align-items: flex-start;
+}
+/* -------------------------
+   HOME GRID CARDS
+------------------------- */
+.home-grid .box-container .box{
+   background-color: #e3f2fd;
+   border-radius: .5rem;
+   padding:2rem;
+   animation: scaleIn 0.4s ease-in-out;
+}
+
+@keyframes scaleIn {
+   from { transform: scale(0.95); opacity: 0; }
+   to { transform: scale(1); opacity: 1; }
+}
+.home-grid .box-container .box .title{
+   font-size: 2rem;
+   color: var(--main-color);
+   text-transform: capitalize;
+}
+.home-grid .box-container .box .flex{
+   display: flex;
+   flex-wrap: wrap;
+   gap: 1.5rem;
+   margin-top: 2rem;
+}
+.home-grid .box-container .flex a{
+   background-color: var(--light-bg);
+   border-radius: .5rem;
+   padding: 1rem 1.5rem;
+   font-size: 1.5rem;
+   color: var(--main-color);
+   transition: 0.3s ease;
+}
+.home-grid .box-container .flex a i{
+   margin-right: 1rem;
+   color: var(--main-color);
+}
+.home-grid .box-container .flex a span{
+   color: var(--main-color);
+}
+.home-grid .box-container .flex a:hover{
+   background-color: var(--hover-color);
+}
+.home-grid .box-container .flex a:hover span,
+.home-grid .box-container .flex a:hover i{
+   color: #fff;
+}

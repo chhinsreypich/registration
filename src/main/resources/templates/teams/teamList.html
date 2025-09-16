@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team List</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+    <link rel="stylesheet" href="/css/teamlist-style.css">
+</head>
+<body>
+<div class="container">
+    <h1 class="heading">My Teams or Team List</h1>
+
+    <h3 style="margin-bottom:20px;">
+        Total Teams:
+        <span th:text="${#lists.size(teams)}">0</span>
+    </h3>
+
+    <div class="team-grid">
+        <div th:each="team : ${teams}"
+             class="team-card"
+             style="cursor: pointer;"
+             th:onclick="|window.location.href='/teams/${team.id}?memberId=${memberId}'|">
+            <h3 th:text="${team.name}" style="margin-bottom: 20px;">Team Name</h3>
+            <p>Creator:
+                <span th:text="${team.creator != null ? team.creator.name : 'Unknown'}">
+                Creator Name
+              </span>
+            </p>
+        </div>
+    </div>
+
+    <!-- Back Button -->
+    <button class="back-btn" th:onclick="|window.location.href='/members/member-home?memberId=${memberId}'|">
+        <i class="fa-solid fa-arrow-left"></i> Back
+    </button>
+</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--<!DOCTYPE html>-->
+<!--<html lang="en" xmlns:th="http://www.thymeleaf.org">-->
+<!--<head>-->
+<!--  <meta charset="UTF-8">-->
+<!--  <meta http-equiv="X-UA-Compatible" content="IE=edge">-->
+<!--  <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+<!--  <title>courses</title>-->
+
+<!--  &lt;!&ndash; font awesome cdn link  &ndash;&gt;-->
+<!--  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">-->
+
+<!--  &lt;!&ndash; custom css file link  &ndash;&gt;-->
+<!--  <link rel="stylesheet" th:href="@{/css/team-style.css}">-->
+
+<!--</head>-->
+<!--<body>-->
+
+<!--<header class="header">-->
+
+<!--  <section class="home-grid">-->
+
+<!--    <h1 class="heading">Join Team</h1>-->
+
+<!--    <div class="box-container">-->
+
+
+<!--      <div class="box">-->
+<!--        <h3 class="title">Choose your team: </h3>-->
+<!--        <div class="flex">-->
+<!--&lt;!&ndash;          <a href="#"></i><span>Team 1</span></a>&ndash;&gt;-->
+<!--&lt;!&ndash;          <a href="#"><span>Team 2</span></a>&ndash;&gt;-->
+<!--          <ul>-->
+<!--            <li th:each="team : ${teams}">-->
+<!--               <span th:text="${team.name}"></span>-->
+<!--            </li>-->
+<!--          </ul>-->
+
+<!--            <h3 >If not yet have team please press the button below..</h3>-->
+<!--            <button onclick="window.location.href='courses.html'">Add team</button>-->
+<!--            &lt;!&ndash;<h2>&ndash;&gt;-->
+<!--          &lt;!&ndash;  Total Teams:&ndash;&gt;-->
+<!--          &lt;!&ndash;  <span th:text="${#lists.size(teams)}">0</span>&ndash;&gt;-->
+
+<!--          &lt;!&ndash;</h2>&ndash;&gt;-->
+<!--          &lt;!&ndash;<ul>&ndash;&gt;-->
+<!--          &lt;!&ndash;  <li th:each="team : ${teams}">&ndash;&gt;-->
+<!--          &lt;!&ndash;    <span th:text="${team.name}"></span>&ndash;&gt;-->
+<!--          &lt;!&ndash;  </li>&ndash;&gt;-->
+
+
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </section>-->
+<!--</header>-->
+
+
+<!--  &lt;!&ndash; custom js file link  &ndash;&gt;-->
+<!--  <script src="js/script.js"></script>-->
+
+
+<!--</body>-->
+<!--</html>-->
+
+
+
+
+
+
+
+
+
+
+
+<!-- front original-->
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--  <meta charset="UTF-8">-->
+<!--  <meta http-equiv="X-UA-Compatible" content="IE=edge">-->
+<!--  <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+<!--  <title>courses</title>-->
+
+<!--  &lt;!&ndash; font awesome cdn link  &ndash;&gt;-->
+<!--  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">-->
+
+<!--  &lt;!&ndash; custom css file link  &ndash;&gt;-->
+<!--  <link rel="stylesheet" href="team-home-style.css">-->
+
+<!--</head>-->
+<!--<body>-->
+
+<!--<header class="header">-->
+
+<!--  <section class="home-grid">-->
+
+<!--    <h1 class="heading">My team</h1>-->
+
+<!--    <div class="box-container">-->
+
+
+<!--      <div class="box">-->
+<!--        <h3 class="title">Choose your team: </h3>-->
+<!--        <div class="flex">-->
+<!--          <a href="#"></i><span>Team 1</span></a>-->
+<!--          <a href="#"><span>Team 2</span></a>-->
+<!--          <h3 >If not yet have team please press the button below..</h3>-->
+<!--          <button onclick="window.location.href='courses.html'">Add team</button>-->
+
+
+<!--        </div>-->
+<!--      </div>-->
+<!--  </section>-->
+
+<!--  &lt;!&ndash; custom js file link  &ndash;&gt;-->
+<!--  <script src="js/script.js"></script>-->
+
+
+<!--</body>-->
+<!--</html>-->
+
+
+<!--my original-->
+<!--<!DOCTYPE html>-->
+<!--<html xmlns:th="http://www.thymeleaf.org">-->
+<!--<head>-->
+<!--  <title>Team List</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--<h1>Team List</h1>-->
+<!--<h2>-->
+<!--  Total Teams:-->
+<!--  <span th:text="${#lists.size(teams)}">0</span>-->
+
+<!--</h2>-->
+<!--<ul>-->
+<!--  <li th:each="team : ${teams}">-->
+<!--    <span th:text="${team.name}"></span>-->
+<!--  </li>-->
+<!--</ul>-->
+<!--</body>-->
+<!--</html>-->

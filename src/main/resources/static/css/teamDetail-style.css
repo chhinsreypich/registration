@@ -1,0 +1,126 @@
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+   font-family: 'Poppins', sans-serif;
+}
+
+/* Body */
+body {
+   background: #ffffff;
+   display: flex;
+   justify-content: center;
+   padding: 40px 20px;
+   color: #333;
+}
+
+/* Container */
+.container {
+   width: 500px;
+   background: #fff;
+   padding: 30px;
+   border-radius: 15px;
+   box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+}
+
+/* Back button */
+.back-btn {
+   display: inline-flex;
+   align-items: center;
+   gap: 8px;
+   background: #1565c0;
+   color: #fff;
+   border: none;
+   padding: 10px 20px;
+   border-radius: 20px;
+   cursor: pointer;
+   margin-bottom: 20px;
+   transition: 0.3s;
+}
+.back-btn:hover {
+   background: #1e88e5;
+}
+
+/* Team header */
+.team-header {
+   display: flex;
+   align-items: center;
+   gap: 15px;
+   margin-bottom: 30px;
+}
+.team-icon {
+   font-size: 3rem;
+   color: #1565c0;
+}
+.team-name {
+   font-size: 2rem;
+   color: #0d47a1;
+}
+.leader {
+   font-size: 1rem;
+   color: #555;
+}
+
+/* Sub heading */
+.sub-heading {
+   font-size: 1.5rem;
+   margin-bottom: 20px;
+   color: #1565c0;
+}
+
+/* Courses grid */
+.courses {
+   display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+   gap: 20px;
+}
+
+/* Course card */
+.course-card {
+   background: #e3f2fd;
+   border-radius: 12px;
+   padding: 20px;
+   text-align: center;
+   transition: 0.3s;
+}
+.course-card:hover {
+   background: #bbdefb;
+   transform: translateY(-5px);
+}
+.course-card i {
+   font-size: 2rem;
+   margin-bottom: 10px;
+   color: #1565c0;
+   transition: 0.3s;
+}
+.course-card:hover i {
+   color: #0d47a1;
+}
+.course-card h3 {
+   margin-bottom: 8px;
+   font-size: 1.2rem;
+   color: #0d47a1;
+}
+.course-card p {
+   font-size: 0.9rem;
+   color: #1565c0;
+}
+.course-card:hover p {
+   color: #0d47a1;
+}
+
+.member-card {
+   background: #e3f2fd;
+   border-radius: 12px;
+   padding: 20px;
+   margin-bottom: 20px;
+   transition: 0.3s;
+}
+.member-card:hover {
+   background: #bbdefb;
+   transform: translateY(-5px);
+}
+.member-card h3 {
+   color: #0d47a1;
+   margin-bottom: 10px;
+}

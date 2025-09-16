@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Registration Detail</title>
+  <script th:src="@{/js/regDetail.js}" defer></script>
+  <link rel="stylesheet" href="/css/registrationDetail-style.css">
+</head>
+<body>
+<h1 th:text="${lecture.title}">Lecture Title</h1>
+<p th:text="${lecture.content}">Lecture Content</p>
+<h2>
+  Total Enrolled Members:
+  <span th:text="${#lists.size(registrations)}">0</span>
+</h2>
+<h2>Enrolled Members:</h2>
+<ul>
+  <li th:each="reg : ${registrations}" th:id="'reg-' + ${reg.id}">
+    <span th:text="${reg.member.name}"></span>
+
+  </li>
+</ul>
+<p th:if="${#lists.isEmpty(registrations)}">No members enrolled yet.</p>
+<br>
+<button th:onclick="|window.location.href='/members/member-home?memberId=${memberId}'|" >Back</button>
+</body>
+</html>
+

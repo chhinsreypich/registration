@@ -1,0 +1,123 @@
+/* -------------------------
+   GOOGLE FONT
+------------------------- */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600;700&display=swap');
+
+/* -------------------------
+   ROOT VARIABLES
+------------------------- */
+:root {
+    --main-color: #1565c0;   /* Dark Blue */
+    --hover-color: #1e88e5;  /* Lively Blue */
+    --light-bg: #e3f2fd;     /* Light Blue */
+    --light-color: #555;      /* Gray text */
+    --white: #fff;
+    --border: 1px solid rgba(0,0,0,.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Nunito', sans-serif;
+}
+
+body {
+    background-color: var(--white);
+    line-height: 1.6;
+    padding: 2rem;
+}
+form {
+    background-color: var(--light-bg);
+    padding: 3rem 2rem;
+    border-radius: 15px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    max-width: 500px;
+    margin: 2rem auto;
+}
+
+/* Heading */
+h1 {
+    text-align: center;
+    color: var(--main-color);
+    margin-bottom: 2rem;
+    font-size: 2.5rem;
+}
+
+/* Labels */
+label {
+    display: block;
+    font-size: 1.2rem;
+    color: var(--main-color);
+    margin-bottom: 0.5rem;
+}
+
+/* Inputs & Select */
+input[type="text"],
+input[type="number"],
+select {
+    width: 100%;
+    padding: 12px 15px;
+    margin-bottom: 0.5rem;
+    border-radius: 8px;
+    border: 1px solid rgba(0,0,0,0.2);
+    font-size: 1.1rem;
+    outline: none;
+    transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+input:focus,
+select:focus {
+    border: 1px solid var(--main-color);
+    box-shadow: 0 0 8px rgba(21,101,192,0.3);
+}
+
+/* Button */
+button {
+    width: 100%;
+    border: solid;
+    border: none;
+    padding: 12px;
+    background-color: var(--main-color);
+    color: var(--white);
+    font-size: 1.3rem;
+    font-weight: 500;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+button:hover {
+    background-color: var(--hover-color);
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(30,136,229,0.4);
+}
+
+/* Back link */
+a {
+    display: inline-block;
+    margin-top: 1.5rem;
+    text-align: center;
+    width: 100%;
+    padding: 10px;
+    background-color: var(--main-color);
+    color: var(--white);
+    border-radius: 8px;
+    font-size: 1.2rem;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+a:hover {
+    background-color: var(--hover-color);
+    transform: translateY(-2px);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    form {
+        width: 90%;
+        padding: 2rem;
+    }
+}

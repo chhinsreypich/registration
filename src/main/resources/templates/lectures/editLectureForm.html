@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Edit Lecture</title>
+    <link rel="stylesheet" href="/css/editLectureForm-style.css">
+</head>
+<body>
+<h1>Edit Lecture</h1>
+<form th:action="@{/lectures/edit}" method="post">
+    <input type="hidden" name="lectureId" th:value="${lecture.id}">
+    <input type="hidden" name="memberId" th:value="${memberId}">
+
+    <label>Title:</label>
+    <input type="text" name="title" th:value="${lecture.title}" required><br><br>
+
+    <label>Content:</label>
+    <textarea name="content" required th:text="${lecture.content}"></textarea><br><br>
+
+    <button type="submit">Save Changes</button>
+</form>
+
+<form th:action="@{|/lectures/delete/${lecture.id}?memberId=${memberId}|}" method="post" style="margin-top:10px;">
+    <button type="submit" style="background-color:red;color:white;">Delete Lecture</button>
+</form>
+<br>
+<a th:href="@{|/lectures/list?memberId=${memberId}|}">Back to Lecture List</a>
+</body>
+</html>

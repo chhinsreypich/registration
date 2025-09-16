@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">-
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>home</title>
+  <!-- font awesome cdn link  -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+  <!-- custom css file link  -->
+  <link rel="stylesheet" th:href="@{/css/member-home-style.css}">
+</head>
+<body>
+<header class="header">
+  <section class="flex">
+    <a th:href="@{member-home.html}" class="logo">Team study</a>
+    <div class="icons">
+      <div id="menu-btn" class="fas fa-bars" th:href="@{member-home.html}"></div>
+      <div id="user-btn" class="fas fa-user"></div>
+    </div>
+    <div class="profile">
+      <img th:src="@{../images/pic-7.jpg}" class="image" alt="">
+      <h3 class="name" th:text="${member.name}">Mey</h3>
+      <p class="role">student</p>
+      <div class="flex-btn">
+        <a th:href="@{'/members/edit'(memberId=${member.id})}" class="option-btn">Edit</a>
+        <a href="/members/signIn_Up" class="option-btn">Logout</a>
+      </div>
+    </div>
+  </section>
+</header>
+<div class="side-bar">
+  <div id="close-btn">
+    <button  onclick="window.location.href='member-home'"><i class="fas fa-times"></i></button>
+  </div>
+  <div class="profile">
+    <img th:src="@{/images/pic-7.jpg}" class="image" alt="">
+    <h3 class="name" th:text="${member.name}">Mey</h3>
+    <p class="role" th:text="${member.team.name}">student</p>
+  </div>
+  <nav class="navbar">
+    <a th:href="@{'/registrations/new'(memberId=${member.id})}"><i class="fas fa-home"></i><span>Enroll</span></a>
+    <a th:href="@{'/teams/team-home'(memberId=${member.id})}"><i class="fa-solid fa-people-group"></i><span>Team</span></a>
+    <a  th:href="@{'/lectures/list'(memberId=${member.id})}"><i class="fas fa-graduation-cap"></i><span>Lectures</span></a>
+  </nav>
+</div>
+<section class="home-grid">
+  <h1 class="heading">My status</h1>
+  <div class="box-container">
+    <div class="box">
+      <h3 class="title">My team</h3>
+      <div class="flex">
+        <h1 id="teamCount">Total: <span th:text="${myTeams != null ? #lists.size(myTeams) : 0}">0</span> </h1>
+      </div>
+    </div>
+    <div class="box">
+      <h3 class="title">Team List</h3>
+      <div class="flex" th:each="team : ${myTeams}">
+        <h1 href="#"><span th:text="${team.name}"></span></h1><br>
+        <h2 style=" margin-top: 5px; margin-left: 50px;">Member: <span th:text="${#lists.size(team.memberList)}"></span></h2>
+        <br>
+      </div>
+    </div>
+    <div class="box">
+      <h3 class="title">Enrolled Lectures</h3>
+      <div class="flex">
+        <a th:each="lecture : ${joinedLectures}"
+           th:href="@{|/lectures/${lecture.id}?memberId=${MemberId}|}">
+          <span th:text="${lecture.title}">Lecture Title</span>
+        </a>
+      </div>
+
+      <!-- Total count -->
+      <h2 style="margin-top: 1rem;">
+        Total: <span th:text="${joinedLectures != null ? #lists.size(joinedLectures) : 0}">0</span>
+      </h2>
+    </div>
+  </div>
+</section>
+<script th:src="@{/js/member-home-script.js}"></script>
+</body>
+</html>
+

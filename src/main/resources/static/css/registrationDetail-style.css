@@ -1,0 +1,104 @@
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: linear-gradient(135deg, #e3f2fd, #ffffff);
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 100vh;
+  animation: fadeIn 0.6s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+h1 {
+  font-size: 2.2rem;
+  margin-top: 30px;
+  margin-bottom: 10px;
+  color: #1976d2;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.05);
+}
+
+p {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 15px;
+  max-width: 600px;
+  text-align: center;
+}
+
+h2 {
+  margin-top: 15px;
+  color: #444;
+  font-weight: 600;
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+  width: 320px;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  animation: scaleIn 0.4s ease-in-out;
+}
+
+@keyframes scaleIn {
+  from { transform: scale(0.95); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+ul li {
+  padding: 14px 18px;
+  border-bottom: 1px solid #eee;
+  text-align: center;
+  transition: background 0.2s ease-in-out;
+}
+
+ul li:hover {
+  background: #f1f8ff;
+}
+
+ul li:last-child {
+  border-bottom: none;
+}
+
+span {
+  font-size: 1rem;
+  color: #222;
+  font-weight: 500;
+}
+
+button {
+  background: #42a5f5;
+  color: white;
+  padding: 12px 24px;
+  margin-top: 25px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 1rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s ease, background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #1e88e5;
+  transform: scale(1.05);
+}
+
+p[th\\:if] {
+  font-size: 1rem;
+  font-style: italic;
+  color: #888;
+  margin-top: 10px;
+}

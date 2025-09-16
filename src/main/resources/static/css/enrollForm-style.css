@@ -1,0 +1,148 @@
+* {
+   margin: 10px;
+   padding: 0;
+   box-sizing: border-box;
+   font-family: 'Poppins', sans-serif;
+}
+
+/* Body */
+body {
+  padding-top: 200px;
+  background: #f5f7fb;
+  color: #333;
+  align-items: center;
+  min-height: 100vh;
+  width: 100vh;
+}
+
+/* Heading */
+.heading {
+  text-align: center;
+  font-size: 2.2rem;
+  margin-top: 30px;
+  margin-bottom: 10px;
+  color: #1976d2;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.05);
+}
+
+.box{
+  margin: 0 auto;
+}
+
+/* Box container */
+.box-container {
+  background: #fff;
+  padding: 20px;
+  border-radius: 18px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+/* Title */
+.title {
+  font-size: 1.4rem;
+  margin-bottom: 20px;
+  color: #000000;
+}
+
+/* Form */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  text-align: left;
+}
+
+label {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #555;
+}
+
+input, select {
+   padding: 10px 15px;
+   border: 1px solid #ddd;
+   border-radius: 8px;
+   font-size: 1rem;
+   outline: none;
+   transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+input:focus, select:focus {
+   border: 1px solid #42a5f5;
+   box-shadow: 0 0 8px rgba(66, 165, 245, 0.5);
+}
+
+/* Buttons: blue default */
+button, a {
+   display: inline-flex;
+   align-items: center;
+   justify-content: center;
+   gap: 8px;
+   padding: 12px 20px;
+   border: none;
+   border-radius: 25px;
+   background: #42a5f5; /* default blue */
+   color: #fff;
+   font-size: 1rem;
+   cursor: pointer;
+   margin-top: 15px;
+   transition: 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+/* Hover effect */
+button:hover, a:hover {
+   background: #1e88e5;
+   color: #fff;
+   transform: translateY(-2px);
+   box-shadow: 0 4px 15px rgba(66, 165, 245, 0.4);
+}
+
+/* Special styling */
+select {
+  width: 400px;
+  margin-top: 20px;
+  border: 2px solid black;
+  border-radius: 5px;
+}
+
+.a{
+   margin-top: 10px;
+   background: #020c0c;
+}
+
+.input-box input{
+    width: 100%;
+    padding: 13px 50px 13px 20px;
+    background-color: #eee;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    color:#333;
+    font-weight: 500;
+    border-radius: 8px;
+}
+.input-box input::placeholder{
+    color:#888;
+    font-weight: 400;
+}
+.input-box i{
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+    color: #888;
+}
+.input-box select {
+    width: 100%;
+    padding: 13px 20px;
+    background-color: #eee;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    color: #333;
+    font-weight: 500;
+    border-radius: 8px;
+    appearance: none;
+}

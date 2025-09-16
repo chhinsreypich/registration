@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" th:href="@{/css/login-style.css}">
+</head>
+<body>
+<div class="container">
+
+    <!-- Login Form -->
+    <div class="form-box login">
+        <form th:action="@{/members/login}" method="post">
+            <h1>Login</h1>
+            <div class="input-box">
+                <input type="text" placeholder="Username" name="name" required>
+                <i class='bx bxs-user'></i>
+            </div>
+            <div class="input-box">
+                <input type="password" placeholder="Password" name="password" required>
+                <i class='bx bxs-lock-alt'></i>
+            </div>
+            <div class="forgot-link">
+                <a href="#"> Forgot password</a>
+            </div>
+            <button type="submit" class="btn">Login</button>
+            <p>or login with social plateforms</p>
+            <div class="social-icons">
+                <a href="#"><i class='bx bxl-google' ></i></a>
+                <a href="#"><i class='bx bxl-facebook-circle' ></i></a>
+                <a href="#"><i class='bx bxl-github' ></i></a>
+                <a href="#"><i class='bx bxl-linkedin' ></i></a>
+            </div>
+        </form>
+    </div>
+
+    <!-- Registration Form -->
+    <div class="form-box register">
+        <form th:action="@{/members/signIn_Up}" method="post">
+            <h1>Registration</h1>
+<!--            step 1-->
+            <div id="step1">
+                <div class="input-box">
+                    <input type="text" placeholder="Username" name="name" required>
+                    <i class='bx bxs-user'></i>
+                </div>
+                <div class="input-box">
+                    <input type="text" placeholder="Age" name="age" required>
+                    <i class='bx bx-cake'></i>
+                </div>
+                <div class="input-box">
+                    <input type="text" placeholder="Address" name="address" required>
+                    <i class='bx bxs-map'></i>
+                </div>
+                <div class="input-box">
+                    <input type="password" placeholder="Password" name="password" required>
+                    <i class='bx bxs-lock-alt'></i>
+                </div>
+                <button type="button" class="btn" onclick="nextStep()">Next →</button>
+            </div>
+
+            <!-- step 2 -->
+            <div id="step2" style="display: none;">
+                <div class="input-box">
+                    <select name="teamId" required>
+                        <option value="" disabled selected>Select a Team</option>
+                        <option th:each="team : ${teams}" th:value="${team.id}" th:text="${team.name}"></option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn">Register</button>
+                <button type="button" class="btn" style="margin-top: 10px; background:#ccc; color:#333;" onclick="previousStep()">← Back</button>
+            </div>
+        </form>
+    </div>
+    <!-- Toggle  -->
+    <div class="toggle-box">
+        <div class="toggle-panel toggle-left">
+            <h1>Hello, Welcome!</h1>
+            <p>Don't have an account</p>
+            <!-- Fixed button: toggles registration panel -->
+            <!--      <button class="btn register-btn"><a th:href="@{/members/signup}" style="color: white; text-decoration: underline;">Register</a></button>-->
+
+            <button class="btn register-btn"><a class="register-link" href="#" style="color: white; text-decoration: none;">Register</a></button>
+        </div>
+        <div class="toggle-panel toggle-right">
+            <h1>Welcome Back!</h1>
+            <p>Already have an account?</p>
+            <button class="btn login-btn">Login</button>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    const container = document.querySelector('.container');
+    const registerBtn = document.querySelector('.register-btn');
+    const loginBtn = document.querySelector('.login-btn');
+
+    registerBtn.addEventListener('click', ()=>{
+        container.classList.add('active'); // show registration panel
+    });
+    loginBtn.addEventListener('click', ()=>{
+        container.classList.remove('active'); // show login panel
+    });
+
+    document.querySelector('.register-link').addEventListener('click', e=>{
+      e.preventDefault();
+      container.classList.add('active'); // show signup form
+    });
+
+    function nextStep() {
+        document.getElementById("step1").style.display = "none";
+        document.getElementById("step2").style.display = "block";
+    }
+    function previousStep() {
+        document.getElementById("step2").style.display = "none";
+        document.getElementById("step1").style.display = "block";
+    }
+
+</script>
+</body>
+</html>

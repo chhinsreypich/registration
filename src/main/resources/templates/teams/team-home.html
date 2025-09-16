@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>team</title>
+    <!-- font awesome  link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+    <link rel="stylesheet" th:href="@{/css/team-home-style.css}">
+</head>
+<body>
+<button th:onclick="|window.location.href='/members/member-home?memberId=${memberId}'|">
+    <i class="fas fa-house"></i>
+</button>
+<header class="header">
+
+    <section class="home-grid">
+        <h1 class="heading">My team</h1>
+        <div class="box-container">
+            <div class="box">
+                <h3 class="title">Team List </h3>
+                <div class="flex">
+                    <a th:href="@{/teams/list(memberId=${memberId})}"
+                       style="padding: 15px 20px;"
+
+                    ><span>View All Team List</span></a>
+                    <h3 >If you want to create your own team, please press the button below..</h3>
+                    <a th:href="@{'/teams/new'(memberId=${memberId})}" class="blue-btn">
+                        Create your own team
+                    </a>
+                </div>
+                <button th:onclick="|window.location.href='/members/member-home?memberId=${memberId}'|" >
+                    Back to Member Home
+                </button>
+            </div>
+        </div>
+    </section>
+</header>
+</body>
+</html>
