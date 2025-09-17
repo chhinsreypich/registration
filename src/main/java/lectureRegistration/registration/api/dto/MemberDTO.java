@@ -1,6 +1,5 @@
 package lectureRegistration.registration.api.dto;
 
-
 import java.time.LocalDateTime;
 
 public record MemberDTO (

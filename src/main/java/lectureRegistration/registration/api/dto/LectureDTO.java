@@ -8,5 +8,4 @@ public record LectureDTO(
         String content,
         LocalDateTime createdAt
 ) {
-
 }
